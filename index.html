@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ques 2 & 3</title>
+        <meta charset="utf-8">
+            <style>
+        
+            </style>
+    </head>
+    <body>
+        <h1>Types of triangles</h1>
+        <label>Enter the value of sides of the triangle :</label>
+            <input type="text" id="side1" class="side">
+            <input type="text" id="side2" class="side">
+            <input type="text" id="side3" class="side">
+            <button id="btn"> Check</button>
+            <span id="valid"></span>
+            <span id="type"></span>
+            <span id="invalid"></span>
+        </label>
+        <script>
+            document.getElementById('btn').addEventListener('click' , function(){
+                var valid = document.getElementById("valid");
+                
+                var A =  parseInt (document.querySelector('#side1').value); 
+                var B =  parseInt (document.querySelector('#side2').value);  
+                var C =  parseInt (document.querySelector('#side3').value); 
+                
+                var AB = parseInt(A + B);
+                var AC = parseInt(A + C);
+                var BC = parseInt(B + C);
+
+                if(isNaN (A) || isNaN (B) || isNaN(C) || A == "" || B == "" || C == ""){
+                        valid.innerHTML = "Please enter Numbers";
+                }else if((AB > C) && (AC > B) && (BC > A)){
+                        valid.innerHTML = "Triangle is valid ";
+                        if((A==B) && (B==C)){
+                        valid.innerHTML =  " Triangle is valid & Triangle is equilateral";
+                    }   else if((A==B) || (B==C) ||(A==C)){
+                        valid.innerHTML =  "Triangle is valid & Triangle is isosceles";
+                        
+                    }   if(A*A + B*B == C*C){
+                        valid.innerHTML =  "Triangle is valid & Triangle is Right Angled Triangle ";
+                        
+                    }  else if((A != B) && (B != C) && (A != C) ){
+                        valid.innerHTML =  "Triangle is valid & Triangle is Scalene Triangle";
+                        
+                    }
+                } 
+                else{
+                    valid.innerHTML =  " Triangle is not Valid";
+                    
+                }
+            });
+        
+        
+        </script>
+        </body>
+    </html>
